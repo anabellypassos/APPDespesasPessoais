@@ -4,7 +4,7 @@ import 'models/transaction.dart';
 main() => runApp(const ExpensesApp());
 
 class ExpensesApp extends StatelessWidget {
-  const ExpensesApp({Key? key}) : super(key: key);
+  const ExpensesApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(home: MyHomePage());
@@ -12,7 +12,7 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key}) : super(key: key);
+  MyHomePage({super.key});
   final _transactions = [
     Transaction(
       id: 't1',
@@ -41,14 +41,28 @@ class MyHomePage extends StatelessWidget {
           const SizedBox(
             child: Card(
               color: Colors.blue,
-              child: Text('Gráfico'),
               elevation: 5,
+              child: Text('Gráfico'),
             ),
           ),
           Column(
             children: _transactions.map((tr) {
               return Card(
-                child: Text(tr.title),
+                child: Row(
+                  children:<Widget> [
+                  Container(
+                    child: Text (
+                      tr.value.toString()
+                    ),
+                  ),
+                  Column(
+                    children:<Widget> [
+                       Text(tr.title),
+                       Text(tr.date.toString()),
+                    ],
+                    )
+                  ],
+                  ),
               );
             }).toList(),
           ),
