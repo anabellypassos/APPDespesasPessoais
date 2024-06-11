@@ -4,7 +4,7 @@ import 'models/transaction.dart';
 main() => runApp(const ExpensesApp());
 
 class ExpensesApp extends StatelessWidget {
-  const ExpensesApp({super.key});
+  const ExpensesApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(home: MyHomePage());
@@ -12,7 +12,7 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
+  MyHomePage({Key? key}) : super(key: key);
   final _transactions = [
     Transaction(
       id: 't1',
@@ -34,19 +34,23 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Despesas Pessoais'),
       ),
-      body: const Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SizedBox(
+          const SizedBox(
             child: Card(
               color: Colors.blue,
-              elevation: 5,
               child: Text('Gráfico'),
+              elevation: 5,
             ),
           ),
-          Card(
-            child: Text('Lista de Transações'),
+          Column(
+            children: _transactions.map((tr) {
+              return Card(
+                child: Text(tr.title),
+              );
+            }).toList(),
           ),
         ],
       ),
