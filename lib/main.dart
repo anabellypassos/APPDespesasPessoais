@@ -23,6 +23,19 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Despesas Pessoais'),
+        titleTextStyle: const TextStyle(
+          color: Colors.white,
+          fontSize: 20
+          ),
+        backgroundColor: Colors.purple,
+
+        actions: <Widget>[
+          IconButton(
+             icon: const Icon(Icons.add),
+             color: Colors.white,
+             onPressed: (){},
+             )
+        ],
       ),
       body: const SingleChildScrollView(
         child:  Column(
@@ -30,7 +43,7 @@ class MyHomePage extends StatelessWidget {
           children: [
             SizedBox(
               child: Card(
-                color: Colors.blue,
+                color: Color.fromARGB(255, 196, 56, 232),
                 elevation: 5,
                 child: Text('Gráfico'),
               ),
@@ -39,6 +52,12 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed:(){} ,
+        
+      ) ,
+      floatingActionButtonLocation:FloatingActionButtonLocation.centerFloat,
     );
   }
 }
