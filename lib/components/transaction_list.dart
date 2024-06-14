@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
 
-  const TransactionList(this.transactions, {Key? key}) : super(key: key);
+  const TransactionList(this.transactions, {super.key});
 
   @override
   Widget build(BuildContext context) {
