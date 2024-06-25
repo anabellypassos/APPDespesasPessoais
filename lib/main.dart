@@ -21,12 +21,13 @@ class ExpensesApp extends StatelessWidget {
           secondary: Colors.amber,
         ),
         textTheme: tema.textTheme.copyWith(
-          titleLarge: const TextStyle(
+         titleLarge: const TextStyle(
             fontFamily: 'OpenSans',
             fontSize: 18,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
+         
         ),
         appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
@@ -67,16 +68,16 @@ class _MyHomePageState extends State<MyHomePage> {
       value: 211.30,
       date: DateTime.now().subtract(const Duration(days: 4)),
     ),
-     Transaction(
+    Transaction(
       id: 't3',
-      title: 'Escova ',
+      title: 'Cartão de Crédito',
       value: 100211.30,
       date: DateTime.now(),
     ),
     Transaction(
       id: 't4',
-      title: ' Pastel',
-      value: 10.00,
+      title: 'Lanche',
+      value: 11.30,
       date: DateTime.now(),
     ),
   ];
