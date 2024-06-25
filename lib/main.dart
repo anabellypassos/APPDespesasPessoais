@@ -18,7 +18,6 @@ class ExpensesApp extends StatelessWidget {
       theme: tema.copyWith(
         colorScheme: tema.colorScheme.copyWith(
           primary: Colors.purple,
-          secondary: Colors.amber,
         ),
         textTheme: tema.textTheme.copyWith(
          titleLarge: const TextStyle(
@@ -94,9 +93,11 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Despesas Pessoais'),
+        backgroundColor: Colors.purple,
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
+            color: Colors.white,
             onPressed: () => _openTransactionFormModal(context),
           ),
         ],
