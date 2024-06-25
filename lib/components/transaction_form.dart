@@ -94,7 +94,7 @@ class _TransactionFormState extends State<TransactionForm> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 ElevatedButton(
-                  child: const Text(
+                  child: const  Text(
                     'Nova Transação',
                     style: TextStyle(
                       color:Colors.purple,
