@@ -91,17 +91,26 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Despesas Pessoais'),
-        backgroundColor: Colors.purple,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            color: Colors.white,
-            onPressed: () => _openTransactionFormModal(context),
+    appBar: AppBar(
+      title: const Row(
+         children: [
+           Icon(
+            Icons.attach_money,
+            color: Colors.white, 
           ),
+        SizedBox(width: 10), 
+       Text('Despesas Pessoais'),
         ],
       ),
+      backgroundColor: Colors.purple,
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.add),
+          color: Colors.white,
+          onPressed: () => _openTransactionFormModal(context),
+        ),
+      ],
+    ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
