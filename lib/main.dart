@@ -20,13 +20,12 @@ class ExpensesApp extends StatelessWidget {
           primary: Colors.purple,
         ),
         textTheme: tema.textTheme.copyWith(
-         titleLarge: const TextStyle(
+          titleLarge: const TextStyle(
             fontFamily: 'OpenSans',
             fontSize: 18,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
-          
         ),
         appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
@@ -90,33 +89,44 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    appBar: AppBar(
-      title: const Row(
-         children: [
-           Icon(
-            Icons.attach_money,
-            color: Colors.white, 
-          ),
-        SizedBox(width: 10), 
-       Text('Despesas Pessoais'),
-        ],
-      ),
-      backgroundColor: Colors.purple,
-      actions: [
-        IconButton(
-          icon: const Icon(Icons.add),
-          color: Colors.white,
-          onPressed: () => _openTransactionFormModal(context),
+
+    final appBar = AppBar(
+        title: const Row(
+          children: [
+            Icon(
+              Icons.attach_money,
+              color: Colors.white,
+            ),
+            SizedBox(width: 10),
+            Text('Despesas Pessoais'),
+          ],
         ),
-      ],
-    ),
+        backgroundColor: Colors.purple,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            color: Colors.white,
+            onPressed: () => _openTransactionFormModal(context),
+          ),
+        ],
+      );
+    final availableHeigth = MediaQuery.of(context).size.height - appBar.preferredSize.height  - MediaQuery.of(context).padding.top;
+
+    return Scaffold(
+      appBar:appBar ,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Chart(_recentTransactions),
-            TransactionList(_transactions, _removeTransaction),
+            SizedBox(
+              height: availableHeigth * 0.3,
+              child: Chart(_recentTransactions),),
+            SizedBox(
+              
+              height: availableHeigth * 0.7,
+              
+              child: TransactionList(_transactions, _removeTransaction),
+            ),
           ],
         ),
       ),
