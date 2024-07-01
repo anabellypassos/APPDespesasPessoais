@@ -99,6 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(width: 10),
             Text('Despesas Pessoais'),
+            
           ],
         ),
         backgroundColor: Colors.purple,
@@ -119,11 +120,11 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
-              height: availableHeigth * 0.3,
+              height: availableHeigth * 0.35,
               child: Chart(_recentTransactions),),
             SizedBox(
               
-              height: availableHeigth * 0.7,
+              height: availableHeigth * 0.65,
               
               child: TransactionList(_transactions, _removeTransaction),
             ),
