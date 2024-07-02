@@ -9,7 +9,7 @@ class TransactionList extends StatelessWidget {
   const TransactionList(this.transactions, this.onRemove, {Key? key})
       : super(key: key);
 
- @override
+  @override
   Widget build(BuildContext context) {
     return transactions.isEmpty
         ? LayoutBuilder(
@@ -36,7 +36,6 @@ class TransactionList extends StatelessWidget {
               );
             },
           )
-
         : ListView.builder(
             itemCount: transactions.length,
             itemBuilder: (ctx, index) {

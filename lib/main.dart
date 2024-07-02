@@ -21,13 +21,13 @@ class ExpensesApp extends StatelessWidget {
           secondary: Colors.amber,
         ),
         textTheme: tema.textTheme.copyWith(
-          titleLarge: const TextStyle(
+         titleLarge: const TextStyle(
             fontFamily: 'OpenSans',
             fontSize: 18,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
-        
+       
         ),
         appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
@@ -93,26 +93,16 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final appBar = AppBar(
-      title: const Row(
-        children: [
-          Icon(
-            Icons.attach_money,
-            color: Colors.white,
-          ),
-          SizedBox(width: 10),
-          Text('Despesas Pessoais'),
-        ],
-      ),
-      backgroundColor: Colors.purple,
+      title: const Text('Despesas Pessoais'),
       actions: [
         IconButton(
           icon: const Icon(Icons.add),
-          color: Colors.white,
           onPressed: () => _openTransactionFormModal(context),
         ),
       ],
     );
-   final availableHeight = MediaQuery.of(context).size.height -
+
+    final availableHeight = MediaQuery.of(context).size.height -
         appBar.preferredSize.height -
         MediaQuery.of(context).padding.top;
 
