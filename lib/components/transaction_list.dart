@@ -16,15 +16,12 @@ class TransactionList extends StatelessWidget {
             builder: (ctx, constraints) {
               return Column(
                 children: [
-                  SizedBox(height: constraints.maxHeight * 0.05),
-                  SizedBox(
-                    height: constraints.maxHeight * 0.3,
-                    child: Text(
-                      'Nenhuma Transação Cadastrada!',
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
+                  const SizedBox(height: 20),
+                  Text(
+                    'Nenhuma Transação Cadastrada!',
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  SizedBox(height: constraints.maxHeight * 0.05),
+                  const SizedBox(height: 20),
                   SizedBox(
                     height: constraints.maxHeight * 0.6,
                     child: Image.asset(
@@ -69,12 +66,22 @@ class TransactionList extends StatelessWidget {
                   subtitle: Text(
                     DateFormat('d MMM y').format(tr.date),
                   ),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.delete),
-                    color: Colors.red,
-                    onPressed: () => onRemove(tr.id),
-                  ),
-                ),
+                            trailing: MediaQuery.of(context).size.width > 480
+                        ? TextButton.icon(
+                            onPressed: () => onRemove(tr.id),
+                            icon: const Icon(Icons.delete,
+                                color:  Colors.red),
+                            label:const  Text(
+                              'Excluir',
+                              style: TextStyle(
+                                  color: Colors.red),
+                            ),
+                          )
+                        : IconButton(
+                            icon: const Icon(Icons.delete),
+                            color: Colors.red,
+                            onPressed: () => onRemove(tr.id),
+                          )),
               );
             },
           );
