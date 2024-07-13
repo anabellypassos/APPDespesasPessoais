@@ -30,6 +30,8 @@ class _TransactionFormState extends State<TransactionForm> {
 
   @override
   Widget build(BuildContext context) {
+          print('build () TransactionForm') ;
+
     return SingleChildScrollView(
       child: Card(
         elevation: 5,
